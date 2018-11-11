@@ -9,7 +9,6 @@ export const decrement = createAction(DECREMENT);
 export const incrementAsync =()=>dispatch =>{
     setTimeout(()=>{dispatch(increment())},1000);
 }
-
 export const decrementAsync =()=>dispatch=>{
     setTimeout(()=>{dispatch(decrement())},1000);
 }
