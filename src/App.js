@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as counterActions from './modules/counter';
-import axios from 'axios';
+import * as postActions from './modules/post';
 
 
 class App extends Component {
@@ -17,8 +17,8 @@ class App extends Component {
         return (
             <div>
                 <h1>{number}</h1>
-                <button onClick={CounterActions.incrementAsync}>+</button>
-                <button onClick={CounterActions.decrementAsync}>-</button>
+                <button onClick={CounterActions.increment}>+</button>
+                <button onClick={CounterActions.decrement}>-</button>
             </div>
         );
     }
@@ -26,9 +26,13 @@ class App extends Component {
 
 export default connect(
     (state) => ({
-        number: state.counter
+        number: state.counter,
+        post:state.post.data,
+        loading: state.post.pending,
+        error: state.post.error
     }),
     (dispatch) => ({
-        CounterActions: bindActionCreators(counterActions, dispatch)
+        CounterActions: bindActionCreators(counterActions, dispatch),
+        postActions: bondActionCreators(postActions, dispatch)
     })
 )(App);
