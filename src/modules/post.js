@@ -2,7 +2,7 @@ import {handleActions, createAction} from 'redux-actions';
 import {pender} from 'redux-pender';
 import axios from 'axios';
 function getPostAPI(postId){
-    return axios.get('https://jsonplaceholder.typicode.com/posts/${postId}')
+    return axios.get(`https://jsonplaceholder.typicode.com/posts/${postId}`)
 }
 const GET_POST ='GET_POST';
 //const GET_POST_PENDING='GET_POST_PENDING';
