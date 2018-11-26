@@ -32,6 +32,7 @@ const initialState = {
     }
 }
 
+
 export default handleActions({
     ...pender({
         type:GET_POST,
@@ -43,7 +44,16 @@ export default handleActions({
                         body
                     }
                 }
-        }
+            },
+            onCancel:(state,action)=>{
+                return{
+                    data:{
+                        title:'cancel',
+                        body:'cancel'
+                    }
+                }
+            }
+        
     })
 },initialState);
     
